@@ -15,7 +15,7 @@ class RegistrationController < Devise::RegistrationsController
 		@member.image = params[:member][:image]
 
 		@contact = Contact.new
-		
+		# @contact = Contact.new
 		@contact.mobile = params[:contact][:mobile]
 		@contact.address = params[:contact][:address]
 		@member.valid?
