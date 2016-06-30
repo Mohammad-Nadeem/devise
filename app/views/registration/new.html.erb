@@ -1,0 +1,46 @@
+<label class="l"><h4>Sign up</h4></label>
+
+<%= form_tag(member_registration_path,:method => 'post'), html: { multipart: true } %>
+<%= devise_error_messages! %>
+<div class="login-page">
+<div class="form">
+<div class="container">
+<div>
+<%=text_field_tag "member[username]",@member.username, placeholder:'User Name' %>
+</div>
+
+<div>
+<%=email_field_tag "member[email]",@member.email, placeholder:'Email' %>
+</div>
+
+<div>
+<%=password_field_tag "member[password]",@member.password, placeholder:'Password' %>
+</div>
+
+<div>
+<%=password_field_tag "member[password_confirmation]",@member.password_confirmation , placeholder:'Retype password'%>
+</div>
+<div>
+<td><%=text_field_tag "contact[mobile]" ,@contact.mobile , placeholder: 'Mobile' %></td>
+</div>
+
+<div>
+<%=text_area_tag "contact[address]" ,@contact.address ,:rows => 10, :cols => 25, placeholder:'Address' %>
+</div>
+
+<div class="form-group">
+   
+    <%= file_field_tag  "member[image]", @member.image %>
+    
+  </div>
+<div>
+<%= submit_tag nil, :class => "form_submit"%>
+</div>
+</div>
+<br />
+<div class="link">
+<%= link_to "Log in", new_session_path(resource_name) %><br />
+</div>
+</div>
+</div>
+

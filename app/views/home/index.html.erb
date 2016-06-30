@@ -1,0 +1,20 @@
+<% if member_signed_in? %>
+
+<h3 class="l">Profile</h3>
+<h3>welcome! <%= current_member.username %></h3>
+<div class="t">
+<%= link_to "Sign Out", destroy_member_session_path, :method => :delete %>
+</div>
+<div class="m">
+<h4>Name: <%= current_member.username %></h4>
+<h4>Email: <%= current_member.email %><br>
+<h4>Picture: <%= current_member.image %><br>
+
+
+<% else %>
+
+<h1> welcome to rails community</h1>
+<%= link_to "Sign In", new_member_session_path, :method => :get %>
+<%= link_to "Sign up", new_member_registration_path, :method => :get %>
+
+<% end %>     
